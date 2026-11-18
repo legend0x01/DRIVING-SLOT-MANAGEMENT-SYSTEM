@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driving Test Slot Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="header">
+        <h1>RTO Driving Test Slot Management System</h1>
+        <p>Book, Reschedule, or Cancel Your Driving Test Slot</p>
+    </div>
+
+    <div id="nav">
+        <a href="#register-box">Book Slot</a>
+        <a href="#slots-box">Available Slots</a>
+        <a href="#status-box">Check Status</a>
+    </div>
+
+    <!-- Applicant Registration & Booking Section -->
+    <div id="register-box" class="box">
+        <h2>1. Applicant Registration & Slot Booking</h2>
+        <form onsubmit="bookSlot(event)">
+            <label>Applicant Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label>Learner License Number:</label>
+            <input type="text" id="license" placeholder="e.g. HR26-202600123" required>
+
+            <label>Vehicle Category:</label>
+            <select id="category">
+                <option value="Two Wheeler (MCWG)">Two Wheeler (MCWG)</option>
+                <option value="Four Wheeler (LMV)">Four Wheeler (LMV)</option>
+                <option value="Both (MCWG + LMV)">Both (MCWG + LMV)</option>
+            </select>
+
+            <label>Select Test Date:</label>
+            <input type="date" id="date" required>
+
+            <label>Select Time Slot:</label>
+            <select id="slot">
+                <option value="Morning (09:00 AM - 11:00 AM)">Morning (09:00 AM - 11:00 AM)</option>
+                <option value="Afternoon (12:00 PM - 02:00 PM)">Afternoon (12:00 PM - 02:00 PM)</option>
+                <option value="Evening (03:00 PM - 05:00 PM)">Evening (03:00 PM - 05:00 PM)</option>
+            </select>
+
+            <button type="submit" id="book-btn">Confirm Booking</button>
+        </form>
+    </div>
+
+    <!-- Available Slots Table -->
+    <div id="slots-box" class="box">
+        <h2>2. Today's Available Slots</h2>
+        <table>
+            <tr>
+                <th>Time Slot</th>
+                <th>Vehicle Type</th>
+                <th>Seats Left</th>
+                <th>Availability</th>
+            </tr>
+            <tr>
+                <td>09:00 AM - 11:00 AM</td>
+                <td>Two Wheeler</td>
+                <td>5</td>
+                <td class="open">Open</td>
+            </tr>
+            <tr>
+                <td>12:00 PM - 02:00 PM</td>
+                <td>Four Wheeler</td>
+                <td>2</td>
+                <td class="open">Open</td>
+            </tr>
+            <tr>
+                <td>03:00 PM - 05:00 PM</td>
+                <td>All Categories</td>
+                <td>0</td>
+                <td class="full">Full</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Booking Details, Reschedule, Cancel & Test Status -->
+    <div id="status-box" class="box">
+        <h2>3. Manage Booking & Test Status</h2>
+        <p id="empty-msg">No active booking found. Please fill the form above to book a slot.</p>
+
+        <div id="booking-details">
+            <p><strong>Applicant Name:</strong> <span id="show-name"></span></p>
+            <p><strong>License No:</strong> <span id="show-license"></span></p>
+            <p><strong>Vehicle Category:</strong> <span id="show-category"></span></p>
+            <p><strong>Booked Date & Slot:</strong> <span id="show-date"></span> | <span id="show-slot"></span></p>
+            <p><strong>Test Status:</strong> <span id="show-status" class="status-badge">Scheduled</span></p>
+
+            <button onclick="rescheduleSlot()" id="reschedule-btn">Reschedule Slot</button>
+            <button onclick="cancelSlot()" id="cancel-btn">Cancel Booking</button>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>CSE 326 Web Development Project | Driving Test Slot Management System</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -72,3 +72,7 @@ Nothing needs to be installed.
 **Faculty:** Dr. Puneet Thapar  
 **Section:** KRP26WK  
 **Course:** CSE 326, Web Development
+
+## License
+
+Released under the [MIT License](LICENSE).
